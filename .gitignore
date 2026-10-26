@@ -1,0 +1,28 @@
+# Python / Backend
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+backend/.venv/
+backend/venv/
+backend/.env
+.env
+*.db
+*.sqlite
+*.sqlite3
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.log

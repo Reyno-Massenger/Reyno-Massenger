@@ -1,0 +1,21 @@
+name: reyno_messenger_lite
+description: Reyno Messenger Lite - browser messenger (username/password, 72h retention)
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.2
+  shared_preferences: ^2.3.3
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/reyno_logo.png
+    - assets/icons/reyno_logo_dark.png
+    - assets/icons/app_icon.png
