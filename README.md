@@ -10,7 +10,7 @@
 [![Python](https://img.shields.io/badge/backend-Flask%20%2B%20SQLite-blue)](backend/)
 [![Deploy](https://img.shields.io/badge/deploy-VPS%20%7C%20cPanel-success)](#-install--choose-your-easy-way)
 [![SSL](https://img.shields.io/badge/SSL-free%20(domain%2C%20IP%20or%20none)-orange)](#-ssl--three-free-choices)
-[![Retention](https://img.shields.io/badge/auto--delete-every%2072h-red)](#-privacy-by-design)
+[![Retention](https://img.shields.io/badge/auto--delete-every%2072h-red)](#-what-is-this-in-plain-words)
 
 **English** · [🇮🇷 فارسی — پایین همین صفحه](#-نسخه-فارسی)
 
@@ -76,7 +76,7 @@ that runs on **your own** server or hosting. You own it, you control it, and:
 2. Connect to your server and paste this one line:
 
 ```bash
-git clone YOUR-REPO-URL reyno-lite && cd reyno-lite && bash install.sh
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash install.sh
 ```
 
 3. Choose **1**, type your domain, pick an admin username/password — the script does everything else, including the **free SSL lock** 🔒.
@@ -86,7 +86,7 @@ git clone YOUR-REPO-URL reyno-lite && cd reyno-lite && bash install.sh
 Just like panels such as **3x-ui**: you don't need to buy a domain at all.
 
 ```bash
-git clone YOUR-REPO-URL reyno-lite && cd reyno-lite && bash install.sh
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash install.sh
 ```
 
 Choose **2**. The installer automatically gets a **free SSL certificate for your
@@ -102,7 +102,7 @@ https://YOUR-SERVER-IP/
 ### Way C — VPS, plain HTTP, no SSL at all
 
 ```bash
-git clone YOUR-REPO-URL reyno-lite && cd reyno-lite && bash install.sh
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash install.sh
 ```
 
 Choose **3**. Done. Open `http://YOUR-SERVER-IP/`.
@@ -112,11 +112,16 @@ certificate websites abroad may be unreachable — your messenger keeps working
 because it needs nothing from outside. (On your own private network the risk of
 plain HTTP is small; on the open internet, Way A or B is safer.)
 
-### 🖱️ cPanel without any terminal
+### 🖱️ cPanel without any terminal (or with terminal)
 
 Follow the friendly click-by-click guide: **[docs/CPANEL_MANUAL.md](docs/CPANEL_MANUAL.md)**
-— upload a ZIP, press a few buttons, done. Full deployment details, SSL and
-troubleshooting also live in **[docs/DEPLOY.md](docs/DEPLOY.md)**.
+— upload a ZIP, press a few buttons, done. If you prefer using the cPanel Terminal/SSH:
+
+```bash
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash cpanel-setup.sh
+```
+
+Full deployment details, SSL and troubleshooting also live in **[docs/DEPLOY.md](docs/DEPLOY.md)**.
 
 ---
 
@@ -178,7 +183,7 @@ free up storage**. It cannot read anyone's messages.
 | “Video too large” | Videos must be **under 10 MB** — trim it or lower the quality. |
 | I deleted a message but my friend still sees it | That's Lite by design — deletion is only for your own screen. Use **Edit** if you need to change what they see. |
 | A photo/video older than 3 days won't open | That's the 72-hour media cleanup working as promised 🕐 — the message itself stays; only the file is removed. Chats and texts are never auto-deleted. |
-| Forgot the admin password (VPS) | Edit `backend/.env`, change `ADMIN_PASSWORD`, restart: `sudo systemctl restart reyno` |
+| Forgot the admin password (VPS) | Edit `reyno-lite/backend/.env` (or `backend/.env` inside the project folder), change `ADMIN_PASSWORD`, restart: `sudo systemctl restart reyno` |
 | Still stuck? | 📖 [docs/DEPLOY.md](docs/DEPLOY.md) · 🖱️ [docs/CPANEL_MANUAL.md](docs/CPANEL_MANUAL.md) · open a GitHub issue (never share your passwords!) |
 
 ---
@@ -230,10 +235,10 @@ belong to the Reyno project.
 
 | تو چی داری؟ | این راه رو برو | چقدر طول می‌کشه؟ | ترمینال (صفحه سیاه) لازمه؟ |
 |---|---|---|---|
-| سرور لینوکسی (VPS) + دامنه | راه ۱ | حدود ۵ دقیقه | فقط یه کپی‌پیست |
-| سرور لینوکسی، **بدون دامنه** (فقط یه آی‌پی مثل `185.2.3.4`) | راه ۲ | حدود ۵ دقیقه | فقط یه کپی‌پیست |
-| سرور لینوکسی، **ساده‌ترین حالت** (بدون SSL، فقط HTTP) | راه ۳ | حدود ۵ دقیقه | فقط یه کپی‌پیست |
-| هاست اشتراکی cPanel و با ترمینال مشکلی نداری | فایل `cpanel-setup.sh` | حدود ۵ دقیقه | بله |
+| سرور لینوکسی (VPS) + دامنه | [راه ۱](#راه-۱--سرور--دامنه) | حدود ۵ دقیقه | فقط یه کپی‌پیست |
+| سرور لینوکسی، **بدون دامنه** (فقط یه آی‌پی مثل `185.2.3.4`) | [راه ۲](#راه-۲--سرور-بدون-دامنه-فقط-با-آیپی-مثل-پنل-3x-ui) | حدود ۵ دقیقه | فقط یه کپی‌پیست |
+| سرور لینوکسی، **ساده‌ترین حالت** (بدون SSL، فقط HTTP) | [راه ۳](#راه-۳--سادهترین-حالت-بدون-ssl-فقط-http) | حدود ۵ دقیقه | فقط یه کپی‌پیست |
+| هاست اشتراکی cPanel و با ترمینال مشکلی نداری | فایل [`cpanel-setup.sh`](cpanel-setup.sh) | حدود ۵ دقیقه | بله |
 | هاست اشتراکی cPanel و از ترمینال خوشت نمیاد 🖱️ | [📖 آموزش تصویری cPanel بدون ترمینال](docs/CPANEL_MANUAL.md) | حدود ۱۵ دقیقه | **اصلاً** |
 
 ### راه ۱ — سرور + دامنه
@@ -243,7 +248,7 @@ belong to the Reyno project.
 ۲. به سرور وصل شو و این یه خط رو پیست کن:
 
 ```bash
-git clone YOUR-REPO-URL reyno-lite && cd reyno-lite && bash install.sh
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash install.sh
 ```
 
 ۳. گزینه **۱** رو بزن، دامنه‌ت رو بنویس، یه نام کاربری و رمز برای مدیر انتخاب کن — بقیه‌ش رو خود اسکریپت انجام می‌ده، حتی گرفتن **قفل امنیتی رایگان (SSL)** رو 🔒.
@@ -253,7 +258,7 @@ git clone YOUR-REPO-URL reyno-lite && cd reyno-lite && bash install.sh
 لازم نیست دامنه بخری! این دستور رو بزن و گزینه **۲** رو انتخاب کن:
 
 ```bash
-git clone YOUR-REPO-URL reyno-lite && cd reyno-lite && bash install.sh
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash install.sh
 ```
 
 نصب‌کننده خودش برای آی‌پی سرورت **گواهی SSL رایگان** می‌گیره (مثل 3x-ui؛ خودش هم تمدید می‌شه). بعد فقط این آدرس رو باز کن:
@@ -264,7 +269,13 @@ https://آی‌پی-سرور-تو/
 
 ### راه ۳ — ساده‌ترین حالت: بدون SSL (فقط HTTP)
 
-همون دستور بالا رو بزن و این بار گزینه **۳** رو انتخاب کن. تموم شد! آدرس سایتت می‌شه:
+این دستور رو بزن و این بار گزینه **۳** رو انتخاب کن. تموم شد!
+
+```bash
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash install.sh
+```
+
+آدرس سایتت می‌شه:
 
 ```
 http://آی‌پی-سرور-تو/
@@ -272,9 +283,15 @@ http://آی‌پی-سرور-تو/
 
 این حالت رو عمداً گذاشتیم: **اگه یه روز اینترنت ملی شد**، سایت‌های خارجیِ صادرکننده گواهی ممکنه در دسترس نباشن — ولی پیام‌رسان تو به هیچ‌چیز خارجی‌ای نیاز نداره و به کارش ادامه می‌ده. (توی شبکه خصوصی خودت خطر HTTP کمه؛ ولی روی اینترنت باز، راه ۱ یا ۲ امن‌ترن.)
 
-### 🖱️ هاست cPanel بدون حتی یه دونه دستور
+### 🖱️ هاست cPanel بدون حتی یه دونه دستور (یا با ترمینال)
 
-آموزش قدم‌به‌قدم و کلیکی رو اینجا بخون: **[docs/CPANEL_MANUAL.md](docs/CPANEL_MANUAL.md)** — یه فایل زیپ آپلود می‌کنی، چند تا دکمه می‌زنی، تموم. جزئیات کامل نصب و رفع اشکال هم توی **[docs/DEPLOY.md](docs/DEPLOY.md)** هست.
+آموزش قدم‌به‌قدم و کلیکی رو اینجا بخون: **[docs/CPANEL_MANUAL.md](docs/CPANEL_MANUAL.md)** — یه فایل زیپ آپلود می‌کنی، چند تا دکمه می‌زنی، تموم. اگر با ترمینال cPanel یا SSH راحت‌تری، این دستور رو بزن:
+
+```bash
+git clone https://github.com/Reyno-Massenger/Reyno-Massenger.git reyno-lite && cd reyno-lite && bash cpanel-setup.sh
+```
+
+جزئیات کامل نصب و رفع اشکال هم توی **[docs/DEPLOY.md](docs/DEPLOY.md)** هست.
 
 ## قفل امنیتی (SSL) — سه انتخاب رایگان
 
@@ -327,7 +344,7 @@ http://آی‌پی-سرور-تو/
 | می‌گه «فیلم خیلی بزرگه» | فیلم باید **زیر ۱۰ مگابایت** باشه — کوتاهش کن یا کیفیتش رو بیار پایین. |
 | پیام رو پاک کردم ولی دوستم هنوز می‌بینتش | طبیعیه! توی نسخه لایت حذف فقط برای صفحه خودته. اگه می‌خوای اون چیزی که می‌بینه عوض بشه، از **ویرایش** استفاده کن. |
 | عکس یا فیلم قدیمی‌تر از ۳ روز باز نمی‌شه | این همون پاک‌سازی خودکار ۷۲ ساعته‌ست 🕐 — فقط فایل پاک شده، خود پیام سر جاشه. چت و متن هیچ‌وقت خودکار پاک نمی‌شن. |
-| رمز مدیر رو یادم رفته (سرور) | فایل `backend/.env` رو باز کن، `ADMIN_PASSWORD` رو عوض کن و این دستور رو بزن: `sudo systemctl restart reyno` |
+| رمز مدیر رو یادم رفته (سرور) | فایل `reyno-lite/backend/.env` (یا `backend/.env` داخل پوشه پروژه) رو باز کن، `ADMIN_PASSWORD` رو عوض کن و این دستور رو بزن: `sudo systemctl restart reyno` |
 | باز هم نشد؟ | 📖 [docs/DEPLOY.md](docs/DEPLOY.md) · 🖱️ [docs/CPANEL_MANUAL.md](docs/CPANEL_MANUAL.md) · یا توی گیت‌هاب Issue باز کن (هیچ‌وقت رمزت رو برای کسی نفرست!) |
 
 ## مجوز
